@@ -10,7 +10,7 @@ import { secondsToDuration, minutesToDuration } from "../utils/duration";
 import titleCaser from "../utils/title-caser";
 
 function Pomodoro() {
-  const DEBUG = true;
+  const DEBUG = false;
   const [originalTitle] = useState(document.title);
 
   const templateState = {
