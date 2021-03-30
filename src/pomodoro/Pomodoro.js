@@ -104,7 +104,7 @@ function Pomodoro() {
     return timerState.elapsed === timerState[timerState.session] * 60;
   }
 
-  //calls appropriate state management functions every second timer is active.
+  //calls appropriate state management functions every second timer is unpaused.
   useInterval(
     () => {
       if (sessionIsOver()) flipSession();
