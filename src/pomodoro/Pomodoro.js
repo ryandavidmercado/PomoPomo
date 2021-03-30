@@ -6,8 +6,12 @@ import PlayPauseStop from "./PlayPauseStop";
 import ActiveTimer from "./ActiveTimer";
 import DebugButton from "./DebugButton";
 
+import { secondsToDuration, minutesToDuration } from "../utils/duration";
+import titleCaser from "../utils/title-caser";
+
 function Pomodoro() {
-  const DEBUG = false;
+  const DEBUG = true;
+  const [originalTitle] = useState(document.title);
 
   const templateState = {
     active: false,
@@ -36,10 +40,15 @@ function Pomodoro() {
   }
 
   function tickTimer() {
+    const { session, elapsed } = timerState;
+    const remainingTime = timerState[session] * 60 - elapsed;
     setTimerState((timerState) => ({
       ...timerState,
       elapsed: timerState.elapsed + 1,
     }));
+    document.title = `${titleCaser(session)}: ${secondsToDuration(
+      remainingTime
+    )}`;
   }
 
   //button handler functions
@@ -49,9 +58,14 @@ function Pomodoro() {
       focus: timerState.focus,
       break: timerState.break,
     }));
+    document.title = originalTitle;
   }
 
   function playPause() {
+    if (!timerState.paused) {
+      const { session } = timerState;
+      document.title = `${titleCaser(session)}: PAUSED`;
+    }
     setTimerState((timerState) => ({
       ...timerState,
       paused: !timerState.paused,
