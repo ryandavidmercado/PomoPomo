@@ -17,8 +17,10 @@ The app was created to practice use of complex algorithmic logic and state manag
 
 ## Tech Stack
 * React
-* Bootstrap
-* useInterval hook
+  * User interactivity (starting/stopping a session, adjusting session lengths, pausing the timer)
+  * Modularity: UI and logic were cleanly modularized through the use of components, creating an easily-parsable codebase.
+* Bootstrap: Rapid iteration of the GUI.
+* useInterval hook: Enabled extremely concise and readable logic for the timer through the use of declarative state.
 
 ## Future Goals
 * Create a more attractive interface using CSS Modules and react-responsive, exemplified by another project of mine: FlashyCards.
