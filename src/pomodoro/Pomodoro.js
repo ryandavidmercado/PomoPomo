@@ -6,7 +6,7 @@ import PlayPauseStop from "./PlayPauseStop";
 import ActiveTimer from "./ActiveTimer";
 import DebugButton from "./DebugButton";
 
-import { secondsToDuration, minutesToDuration } from "../utils/duration";
+import { secondsToDuration } from "../utils/duration";
 import titleCaser from "../utils/title-caser";
 
 function Pomodoro() {
